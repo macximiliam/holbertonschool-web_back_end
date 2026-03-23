@@ -2,6 +2,8 @@
 """
 Module that provides a type-annotated function to sum a list of floats.
 """
+
+
 from typing import List
 
 
