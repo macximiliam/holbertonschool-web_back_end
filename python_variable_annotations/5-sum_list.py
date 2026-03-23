@@ -1,20 +1,18 @@
 #!/usr/bin/env python3
 """
-Module that provides a type-annotated function to sum a list of floats.
+Module that provides a type-annotated function to sum a mixed list.
 """
+from typing import List, Union
 
 
-from typing import List
-
-
-def sum_list(input_list: List[float]) -> float:
+def sum_mixed_list(mxd_lst: List[Union[int, float]]) -> float:
     """
-    Calculates the sum of a list of floating-point numbers.
+    Calculates the sum of a list containing integers and floats.
 
     Args:
-        input_list (List[float]): A list containing float numbers.
+        mxd_lst (List[Union[int, float]]): The list of mixed numbers.
 
     Returns:
-        float: The sum of the elements in input_list.
+        float: The sum of the numbers in mxd_lst as a float.
     """
-    return sum(input_list)
+    return float(sum(mxd_lst))
