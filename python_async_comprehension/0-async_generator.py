@@ -2,6 +2,8 @@
 """
 Module that contains an asynchronous generator.
 """
+
+
 import asyncio
 import random
 
