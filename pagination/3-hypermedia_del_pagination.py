@@ -42,21 +42,18 @@ class Server:
         """
         Returns a dictionary with pagination data, resilient to deletions.
         """
-        # 1. Verificar que el índice sea válido y esté en el rango
         assert index is not None and 0 <= index < len(self.indexed_dataset())
 
         indexed_data = self.indexed_dataset()
         data = []
         current_index = index
 
-        # 2. Recolectar datos saltando los índices que han sido eliminados
         while len(data) < page_size and current_index < len(indexed_data):
             item = indexed_data.get(current_index)
             if item is not None:
                 data.append(item)
             current_index += 1
 
-        # 3. Construir el diccionario de retorno
         return {
             'index': index,
             'next_index': current_index,
