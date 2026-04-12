@@ -43,4 +43,3 @@ class Server:
             return []
 
         return data[start:end]
- 
