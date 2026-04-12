@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 """
-Module for filtering schools by a specific topic
+Module for updating school topics
 """
 
 
-def schools_by_topic(mongo_collection, topic):
+def update_topics(mongo_collection, name, topics):
     """
-    Returns the list of school having a specific topic
+    Changes all topics of a school document based on the name
     """
-    return [school for school in mongo_collection.find({"topics": topic})]
+    mongo_collection.update_many(
+        {"name": name},
+        {"$set": {"topics": topics}}
+    )
