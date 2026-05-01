@@ -1,12 +1,12 @@
 /**
- * Returns the sum of all student IDs.
- * @param {Array} students - The list of student objects.
- * @returns {Number} The total sum of all IDs.
+ * Returns an array of ids from a list of objects.
+ * @param {Array} listStudents - The list of student objects.
+ * @returns {Array} An array of ids or an empty array if input is not an array.
  */
-export default function getStudentIdsSum(students) {
-  if (!Array.isArray(students)) {
-    return 0;
+export default function getListStudentIds(listStudents) {
+  if (!Array.isArray(listStudents)) {
+    return [];
   }
 
-  return students.reduce((accumulator, student) => accumulator + student.id, 0);
+  return listStudents.map((student) => student.id);
 }
