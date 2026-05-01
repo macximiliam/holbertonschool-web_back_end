@@ -1,13 +1,12 @@
 /**
- * Returns an array of students located in a specific city.
+ * Returns the sum of all student IDs.
  * @param {Array} students - The list of student objects.
- * @param {String} city - The city to filter by.
- * @returns {Array} An array of objects belonging to the specified city.
+ * @returns {Number} The total sum of all IDs.
  */
-export default function getStudentsByLocation(students, city) {
+export default function getStudentIdsSum(students) {
   if (!Array.isArray(students)) {
-    return [];
+    return 0;
   }
 
-  return students.filter((student) => student.location === city);
+  return students.reduce((accumulator, student) => accumulator + student.id, 0);
 }
