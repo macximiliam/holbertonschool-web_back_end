@@ -1,6 +1,6 @@
-/** 
-* Retorna una lista de objetos estudiantiles. 
-* Cada objeto contiene id, nombre y ubicación. 
+/**
+* Returns a list of student objects.
+* Each object contains id, name and location.
 */
 export default function getListStudents() {
   return [
