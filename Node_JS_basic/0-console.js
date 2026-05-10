@@ -1,4 +1,5 @@
-function displayMessage(msg){
+/*导 eslint-env es6 */
+function displayMessage(msg) {
     console.log(msg);
 }
 
