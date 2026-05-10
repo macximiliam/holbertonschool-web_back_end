@@ -1,7 +1,9 @@
-/* eslint-disable no-console */
-/*导 eslint-env es6 */
-function displayMessage(msg) {
+/**
+ * Imprime un mensaje en la consola.
+ * @param {String} msg - El mensaje a mostrar.
+ */
+const displayMessage = (msg) => {
   console.log(msg);
-}
+};
 
 module.exports = displayMessage;
