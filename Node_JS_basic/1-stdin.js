@@ -4,12 +4,7 @@
  * Finally, it displays a closing message when the stream ends.
  */
 
-/**
- * Interactive script that reads user input from STDIN.
- */
-
-
-process.stdout.write('Welcome to Holberton School, what is your name?\n');
+pprocess.stdout.write('Welcome to Holberton School, what is your name?\n');
 
 process.stdin.setEncoding('utf8');
 
