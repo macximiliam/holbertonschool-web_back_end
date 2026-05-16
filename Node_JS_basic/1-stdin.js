@@ -4,10 +4,11 @@
  * Finally, it displays a closing message when the stream ends.
  */
 
+process.stdin.setEncoding('utf8');
 process.stdout.write('Welcome to Holberton School, what is your name?\n');
 process.stdin.on('data', (input) => {
   if (input !== null && input.toString().trim() !== '') {
-    process.stdout.write(`Your name is: ${input.toString().trim()}\n`);
+    process.stdout.write(`Your name is: ${input.replace(/\n$/, '')}\n`);
   }
 });
 
