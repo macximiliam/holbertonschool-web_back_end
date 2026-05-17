@@ -1,7 +1,9 @@
 const express = require('express');
+
 const countStudents = require('./3-read_file_async');
 
 const app = express();
+
 const PORT = 1245;
 const DATABASE_FILE = process.argv[2];
 
@@ -14,7 +16,7 @@ app.get('/students', (req, res) => {
   let output = 'This is the list of our students\n';
 
   console.log = (msg) => {
-    output += msg + '\n';
+    output += `${msg}\n`;
   };
 
   countStudents(DATABASE_FILE)
