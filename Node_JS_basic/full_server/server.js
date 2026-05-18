@@ -6,6 +6,8 @@ const PORT = 1245;
 
 app.use('/', router);
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 export default app;

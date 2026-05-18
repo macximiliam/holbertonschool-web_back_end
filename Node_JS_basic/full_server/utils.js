@@ -3,29 +3,29 @@ import fs from 'fs';
 const readDatabase = (filePath) => new Promise((resolve, reject) => {
   fs.readFile(filePath, 'utf8', (err, data) => {
     if (err) {
-      reject(new Error('Cannot load the database'));
+      reject(err);
       return;
     }
 
-    const lines = data.split('\n');
-    const students = {};
+    const lines = data.split('\n').filter((line) => line.trim() !== '');
+    const headers = lines[0].split(',');
+    const fieldIndex = headers.indexOf('field');
+    const firstnameIndex = headers.indexOf('firstname');
 
-    for (let i = 1; i < lines.length; i += 1) {
-      const line = lines[i].trim();
-      if (line !== '') {
-        const row = line.split(',');
-        const firstName = row[0];
-        const field = row[3];
+    const result = {};
 
-        if (firstName && field) {
-          if (!students[field]) {
-            students[field] = [];
-          }
-          students[field].push(firstName);
-        }
+    lines.slice(1).forEach((line) => {
+      const cols = line.split(',');
+      const field = cols[fieldIndex];
+      const firstname = cols[firstnameIndex];
+
+      if (field && firstname) {
+        if (!result[field]) result[field] = [];
+        result[field].push(firstname);
       }
-    }
-    resolve(students);
+    });
+
+    resolve(result);
   });
 });
 
