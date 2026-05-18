@@ -1,8 +1,8 @@
-import { readDatabase } from '../utils';
+import readDatabase from '../utils';
 
 export default class StudentsController {
   static getAllStudents(request, response) {
-    const databaseFile = process.argv[2];
+    const databaseFile = process.argv[2] || '';
     
     readDatabase(databaseFile)
       .then((students) => {
@@ -19,7 +19,7 @@ export default class StudentsController {
   }
 
   static getAllStudentsByMajor(request, response) {
-    const databaseFile = process.argv[2];
+    const databaseFile = process.argv[2] || '';
     const { major } = request.params;
     
     if (major !== 'CS' && major !== 'SWE') {
